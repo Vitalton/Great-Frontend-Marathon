@@ -1,0 +1,89 @@
+*,
+*::after,
+*::before {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+html,
+body {
+   box-sizing: inherit;
+   font-family: "Work Sans", sans-serif;
+   color: #fff;
+}
+.wrapper {
+   background-color: #17171c;
+   width: 400px;
+   height: 600px;
+   margin: 0 auto;
+   margin-top: 50px;
+   padding: 25px 20px;
+}
+
+.inner__wrapper {
+   height: 100%;
+   display: grid;
+   grid-template-areas:
+      "out out out out"
+      "edits edits edits operation"
+      "number number number operation";
+   grid-gap: 13px;
+}
+
+.out {
+   grid-area: out;
+   font-weight: 300;
+   font-size: 96px;
+   line-height: 96px;
+   text-align: right;
+}
+
+.edit {
+   grid-area: edits;
+   display: grid;
+   grid-template-columns: 2fr 1fr;
+   justify-content: center;
+   grid-gap: 10px;
+   align-items: center;
+}
+
+.numbers {
+   grid-area: number;
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   justify-content: center;
+   grid-gap: 10px;
+   align-items: center;
+}
+
+.operations {
+   grid-area: operation;
+   display: grid;
+   grid-template-columns: 1fr;
+   justify-content: center;
+   grid-gap: 10px;
+   align-items: center;
+}
+
+.btn-number {
+   text-align: center;
+   padding: 20px;
+   background-color: #2e2f38;
+   border-radius: 24px;
+   font-weight: 400;
+   font-size: 32px;
+   line-height: 40px;
+   display: inline-block;
+}
+.btn-number.three-fr {
+   grid-column-start: 1;
+   grid-column-end: 4;
+}
+
+.clear {
+   background-color: #4e505f;
+}
+
+.operation {
+   background-color: #4b5efc;
+}

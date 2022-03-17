@@ -1,35 +1,75 @@
-const list = {
-   "create a task": "In Progress",
-   "make a bed": "Done",
-   "write a post": "To Do",
-   gog: "Done",
-   post: "To Do",
-};
-
-const listStatus = ["To Do", "In Progress", "Done"];
+let list = [
+   {
+      id: 1,
+      name: "create a post",
+      status: "TODO",
+      priority: "low",
+   },
+   {
+      id: 2,
+      name: "make a bed",
+      status: "Done",
+      priority: "high",
+   },
+   {
+      id: 3,
+      name: "write a post",
+      status: "TODO",
+      priority: "high",
+   },
+   {
+      id: 4,
+      name: "make a desk",
+      status: "TODO",
+      priority: "high",
+   },
+];
 
 function changeStatus(nameTask, status) {
-   nameTask in list ? (list[nameTask] = status) : console.log("unknown task");
+   for (const item of list) {
+      item.status = item.name === nameTask ? status : item.status;
+   }
 }
 
 function addTask(nameTask) {
-   list[nameTask] = "To Do";
+   list.push({
+      id: list[list.length - 1].id + 1 || 1,
+      name: nameTask,
+      status: "TODO",
+      priority: "high",
+   });
 }
 
 function deleteTask(nameTask) {
-   delete list[nameTask];
+   list = list.filter(function (item) {
+      return item.name !== nameTask;
+   });
 }
 
-function showList() {
-   for (const item of listStatus) {
-      console.log(item + ":");
-      for (const key in list) {
-         list[key] === item && console.log(key + ",");
+function showBy(parameter) {
+   function showing(arrayParam) {
+      for (const param of arrayParam) {
+         console.log(param + ":");
+         for (const item of list) {
+            item[parameter] === param && console.log(item.name + ",");
+         }
       }
    }
+   const grouping = {
+      status: function () {
+         const arrayParam = ["TODO", "Done"];
+         showing(arrayParam);
+      },
+      priority: function () {
+         const arrayParam = ["high", "low"];
+         showing(arrayParam);
+      },
+   };
+   grouping[parameter]();
 }
 
 addTask("dead cat");
 deleteTask("write a post");
-changeStatus("create a task", "Done");
-showList();
+addTask("ead cat");
+changeStatus("create a post", "Done");
+showBy("priority");

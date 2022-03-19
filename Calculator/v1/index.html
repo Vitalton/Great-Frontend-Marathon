@@ -9,10 +9,7 @@
    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400&display=swap" rel="stylesheet">
    <link rel="stylesheet" href="./css/style.css">
-   <title>Document</title>
-   <style>
-
-   </style>
+   <title>Calculator</title>
 </head>
 
 <body>
@@ -20,33 +17,38 @@
    <div class="wrapper">
       <div class="inner__wrapper">
          <div class="out">1,258.2</div>
-         <div class="edit">
-            <div class="btn-number clear two-fr">C</div>
-            <div class="btn-number">
-               <img src="./img/union.svg" alt="edit">
+         <div class="buttons">
+            <div class="edit">
+               <div class="btn-number clear">C</div>
+               <div class="btn-number edit--enter">
+                  <img src="./img/union.svg" alt="edit">
+               </div>
             </div>
-         </div>
-         <div class="operations">
-            <div class="operation btn-number"> ÷ </div>
-            <div class="operation btn-number"> × </div>
-            <div class="operation btn-number"> - </div>
-            <div class="operation btn-number"> + </div>
-            <div class="operation btn-number"> = </div>
-         </div>
-         <div class="numbers">
-            <div class="btn-number">7</div>
-            <div class="btn-number">8</div>
-            <div class="btn-number">9</div>
-            <div class="btn-number">4</div>
-            <div class="btn-number">5</div>
-            <div class="btn-number">6</div>
-            <div class="btn-number">1</div>
-            <div class="btn-number">2</div>
-            <div class="btn-number">3</div>
-            <div class="btn-number three-fr">0</div>
+
+            <div class="numbers">
+               <div class="btn-number number">7</div>
+               <div class="btn-number number">8</div>
+               <div class="btn-number number">9</div>
+               <div class="btn-number number">4</div>
+               <div class="btn-number number">5</div>
+               <div class="btn-number number">6</div>
+               <div class="btn-number number">1</div>
+               <div class="btn-number number">2</div>
+               <div class="btn-number number">3</div>
+               <div class="btn-number number three-fr">0</div>
+            </div>
+            <div class="operations">
+               <div class="operation btn-number">÷</div>
+               <div class="operation btn-number">×</div>
+               <div class="operation btn-number">-</div>
+               <div class="operation btn-number">+</div>
+               <div class="operation btn-number calculate"> = </div>
+            </div>
          </div>
       </div>
    </div>
+
+   <script src="./js/main.js"></script>
 
 </body>
 

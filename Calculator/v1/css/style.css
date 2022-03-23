@@ -21,15 +21,22 @@ body {
 }
 
 .out {
+   display: flex;
+   align-items: flex-end;
+   justify-content: end;
    font-weight: 300;
    font-size: 96px;
    line-height: 96px;
-   min-height: 96px;
-   text-align: right;
+   height: 96px;
    overflow: clip;
    margin-bottom: 1rem;
+   transition: all 0.3s ease-out;
+   -webkit-transition: all 0.3s ease-out;
+   -moz-transition: all 0.3s ease-out;
+   -ms-transition: all 0.3s ease-out;
+   -o-transition: all 0.3s ease-out;
 }
-.buttons {
+.btn-container {
    display: grid;
    grid-template-areas:
       "edits edits edits operation"

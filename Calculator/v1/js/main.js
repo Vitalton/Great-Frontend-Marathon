@@ -2,12 +2,14 @@ const outArea = document.querySelector(".out");
 const btnClear = document.querySelector(".clear");
 const btnEdit = document.querySelector(".edit--enter");
 const btnCalc = document.querySelector(".calculate");
-const numbers = document.querySelectorAll(".number");
-const operations = document.querySelectorAll(".operation:not(:last-child)");
-let expressions = "";
+const btnNumbers = document.querySelectorAll(".number");
+const btnOperations = document.querySelectorAll(".operation:not(.calculate)");
+const btnEqual = document.querySelector(".operation.calculate");
 
-console.log(numbers);
-console.log(operations);
+const data = {
+   numbers: [],
+   sign: "",
+};
 
 function calc(operation, a, b) {
    const operations = {
@@ -27,28 +29,68 @@ function calc(operation, a, b) {
    } else return "Error";
 }
 
-btnClear.addEventListener("click", function () {
+function checkSize(value) {
+   if (value.length >= 10) {
+      outArea.style.fontSize = "46px";
+      outArea.style.lineHeight = "46px";
+   } else if (value.length >= 7) {
+      outArea.style.fontSize = "64px";
+      outArea.style.lineHeight = "64px";
+   } else {
+      outArea.style.fontSize = "96px";
+      outArea.style.lineHeight = "96px";
+   }
+}
+
+function parseNumbers(string) {
+   if (string.length === 0) return -1;
+   const symbols = string.split("");
+   let number = "";
+   const result = [];
+   for (const item of symbols) {
+      if (/\d+/.test(item)) {
+         number += item;
+      } else if (item === ".") {
+         number += item;
+      } else {
+         result.push(+number);
+         number = "";
+      }
+   }
+   number && result.push(+number);
+   return result;
+}
+
+btnClear.addEventListener("click", () => {
    outArea.textContent = "";
-   expressions += "";
-   console.log(expressions);
+   checkSize(outArea.textContent);
+   data.numbers.length = 0;
+   data.sign = "";
 });
-btnEdit.addEventListener("click", function () {
-   outArea.textContent = outArea.innerHTML.slice(0, -1);
-   expressions += outArea.innerHTML.slice(0, -1);
-   console.log(expressions);
+btnEdit.addEventListener("click", () => {
+   outArea.textContent = outArea.textContent.slice(0, -1);
+   checkSize(outArea.textContent);
 });
 
-for (let i = 0; i < numbers.length; i++) {
-   numbers[i].addEventListener("click", function () {
-      outArea.textContent += numbers[i].innerHTML;
-      expressions += numbers[i].innerHTML;
-      console.log(expressions);
+btnNumbers.forEach((item) => {
+   item.addEventListener("click", () => {
+      outArea.textContent += item.dataset.value;
+      checkSize(outArea.textContent);
    });
-}
-for (let i = 0; i < operations.length; i++) {
-   operations[i].addEventListener("click", function () {
-      outArea.textContent += operations[i].innerHTML;
-      expressions += operations[i].innerHTML;
-      console.log(expressions);
+});
+btnOperations.forEach((item) => {
+   item.addEventListener("click", () => {
+      outArea.textContent += item.textContent;
+      checkSize(outArea.textContent);
+      data.sign = item.dataset.value;
    });
-}
+});
+btnEqual.addEventListener("click", () => {
+   data.numbers = data.numbers.concat(parseNumbers(outArea.textContent));
+   const { numbers, sign } = data;
+   const result = +numbers.reduce((res, current) => calc(sign, res, current)).toFixed(5);
+   outArea.textContent = result;
+   checkSize(outArea.textContent);
+   data.numbers.length = 0;
+   data.sign = "";
+});

@@ -1,10 +1,4 @@
-const outArea = document.querySelector(".out");
-const btnClear = document.querySelector(".clear");
-const btnEdit = document.querySelector(".edit--enter");
-const btnCalc = document.querySelector(".calculate");
-const btnNumbers = document.querySelectorAll(".number");
-const btnOperations = document.querySelectorAll(".operation:not(.calculate)");
-const btnEqual = document.querySelector(".operation.calculate");
+import { outArea, btnClear, btnEdit, btnNumbers, btnOperations, btnEqual } from "./view.js";
 
 const data = {
    numbers: [],

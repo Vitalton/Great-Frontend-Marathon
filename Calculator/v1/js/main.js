@@ -55,36 +55,40 @@ function parseNumbers(string) {
    return result;
 }
 
-btnClear.addEventListener("click", () => {
-   outArea.textContent = "";
-   checkSize(outArea.textContent);
-   data.numbers.length = 0;
-   data.sign = "";
-});
-btnEdit.addEventListener("click", () => {
-   outArea.textContent = outArea.textContent.slice(0, -1);
-   checkSize(outArea.textContent);
-});
+try {
+   btnClear.addEventListener("click", () => {
+      outArea.textContent = "";
+      checkSize(outArea.textContent);
+      data.numbers.length = 0;
+      data.sign = "";
+   });
+   btnEdit.addEventListener("click", () => {
+      outArea.textContent = outArea.textContent.slice(0, -1);
+      checkSize(outArea.textContent);
+   });
 
-btnNumbers.forEach((item) => {
-   item.addEventListener("click", () => {
-      outArea.textContent += item.dataset.value;
-      checkSize(outArea.textContent);
+   btnNumbers.forEach((item) => {
+      item.addEventListener("click", () => {
+         outArea.textContent += item.dataset.value;
+         checkSize(outArea.textContent);
+      });
    });
-});
-btnOperations.forEach((item) => {
-   item.addEventListener("click", () => {
-      outArea.textContent += item.textContent;
-      checkSize(outArea.textContent);
-      data.sign = item.dataset.value;
+   btnOperations.forEach((item) => {
+      item.addEventListener("click", () => {
+         outArea.textContent += item.textContent;
+         checkSize(outArea.textContent);
+         data.sign = item.dataset.value;
+      });
    });
-});
-btnEqual.addEventListener("click", () => {
-   data.numbers = data.numbers.concat(parseNumbers(outArea.textContent));
-   const { numbers, sign } = data;
-   const result = +numbers.reduce((res, current) => calc(sign, res, current)).toFixed(5);
-   outArea.textContent = result;
-   checkSize(outArea.textContent);
-   data.numbers.length = 0;
-   data.sign = "";
-});
+   btnEqual.addEventListener("click", () => {
+      data.numbers = data.numbers.concat(parseNumbers(outArea.textContent));
+      const { numbers, sign } = data;
+      const result = +numbers.reduce((res, current) => calc(sign, res, current)).toFixed(5);
+      outArea.textContent = result;
+      checkSize(outArea.textContent);
+      data.numbers.length = 0;
+      data.sign = "";
+   });
+} catch (error) {
+   alert;
+}

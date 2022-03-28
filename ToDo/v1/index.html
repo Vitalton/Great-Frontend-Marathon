@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="./css/style.css">
+   <title>ToDo</title>
+</head>
+
+<body>
+
+   <div class="wrapper">
+      <div class="section--container">
+         <section class="section--priority">
+            <h2 class="section__title">High</h2>
+            <div class="section__input" data-priority="high">
+               <input type="text" placeholder="Добавить важных дел" class="task__input" />
+               <img src="./img/add-icon.svg" alt="Add Task" class="add-icon">
+            </div>
+            <ul class="task__list high">
+
+            </ul>
+         </section>
+         <section class="section--priority">
+            <h2 class="section__title">Low</h2>
+            <div class="section__input" data-priority="low">
+               <input type="text" placeholder="Добавить" class="task__input" />
+               <img src="./img/add-icon.svg" alt="Add Task" class="add-icon">
+            </div>
+            <ul class="task__list low">
+            </ul>
+         </section>
+      </div>
+   </div>
+   <script src="./js/view.js" type="module" defer></script>
+   <script src="./js/main.js" type="module" defer></script>
+</body>
+
+</html>

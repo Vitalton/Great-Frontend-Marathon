@@ -1,0 +1,131 @@
+*,
+*::after,
+*::before {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+html,
+body {
+   box-sizing: inherit;
+   font-family: "Roboto", sans-serif;
+   color: #fff;
+}
+.wrapper {
+   max-width: 1200px;
+   margin: 0 auto;
+   padding: 10px 15px;
+}
+.section--container {
+   margin: 50px auto 0;
+   width: 100%;
+   max-width: 500px;
+   padding: 20px 0;
+   box-shadow: 1px 1px 8px #000;
+   border-radius: 6px;
+   -webkit-border-radius: 6px;
+   -moz-border-radius: 6px;
+   -ms-border-radius: 6px;
+   -o-border-radius: 6px;
+}
+.section--priority {
+   padding: 5px 10px;
+}
+.section__title {
+   color: #000000;
+   text-transform: uppercase;
+   text-align: center;
+   font-size: 18px;
+   line-height: 21px;
+   margin-bottom: 12px;
+}
+.section__input {
+   position: relative;
+}
+.add-icon {
+   z-index: 999;
+   position: absolute;
+   right: 12px;
+   top: 0;
+   transform: translateY(50%);
+   -webkit-transform: translateY(50%);
+   -moz-transform: translateY(50%);
+   -ms-transform: translateY(50%);
+   -o-transform: translateY(50%);
+   cursor: pointer;
+   user-select: none;
+}
+
+.task__list {
+   list-style: none;
+}
+.section__input,
+.task__item {
+   padding: 12px;
+   font-size: 18px;
+   line-height: 21px;
+   color: #202020;
+   border: 1px solid #989898;
+   border-radius: 6px;
+}
+.task__input {
+   width: 92%;
+   border: none;
+   font-size: 18px;
+   line-height: 21px;
+}
+.task__input:focus,
+.task__input:active {
+   outline: none;
+}
+.task__item {
+   margin-top: 8px;
+   display: flex;
+   justify-content: space-between;
+   align-items: flex-start;
+   background-color: #fff;
+}
+.task__item:hover {
+   filter: brightness(98%);
+   -webkit-filter: brightness(98%);
+}
+.task__item.done {
+   background: #f4f4f4;
+}
+.task__checkbox {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   min-width: 21px;
+   min-height: 21px;
+   border: 1px solid #998899;
+   border-radius: 50%;
+   -webkit-border-radius: 50%;
+   -moz-border-radius: 50%;
+   -ms-border-radius: 50%;
+   -o-border-radius: 50%;
+   cursor: pointer;
+   user-select: none;
+}
+.task__item.done .task__checkbox::after {
+   content: "";
+   display: block;
+   z-index: 999;
+   width: 15px;
+   height: 15px;
+   background: #c4c4c4;
+   border-radius: 50%;
+   -webkit-border-radius: 50%;
+   -moz-border-radius: 50%;
+   -ms-border-radius: 50%;
+   -o-border-radius: 50%;
+}
+.task__text {
+   margin-left: 12px;
+   margin-right: 18px;
+   width: 100%;
+}
+.close-icon {
+   cursor: pointer;
+   user-select: none;
+}

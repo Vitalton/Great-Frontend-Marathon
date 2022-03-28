@@ -98,15 +98,19 @@ function updateList(list) {
    checkboxList(btnStatus);
    btnRemoveList(btnRemoveTask);
 }
-updateList(list);
-btnAddTask.forEach((button) => {
-   button.onclick = function () {
-      const parent = button.parentNode;
-      addTask(parent.querySelector(".task__input").value, parent.dataset.priority);
-      updateList(list);
-      btnStatus = Array.prototype.slice.call(document.querySelectorAll(".task__checkbox"));
-      btnRemoveTask = Array.prototype.slice.call(document.querySelectorAll(".close-icon"));
-      checkboxList(btnStatus);
-      btnRemoveList(btnRemoveTask);
-   };
-});
+try {
+   updateList(list);
+   btnAddTask.forEach((button) => {
+      button.onclick = function () {
+         const parent = button.parentNode;
+         addTask(parent.querySelector(".task__input").value, parent.dataset.priority);
+         updateList(list);
+         btnStatus = Array.prototype.slice.call(document.querySelectorAll(".task__checkbox"));
+         btnRemoveTask = Array.prototype.slice.call(document.querySelectorAll(".close-icon"));
+         checkboxList(btnStatus);
+         btnRemoveList(btnRemoveTask);
+      };
+   });
+} catch (error) {
+   alert(error);
+}

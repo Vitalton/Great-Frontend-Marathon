@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Gender</title>
+   <style>
+      body {
+         font-family: "Arial", sans-serif;
+         font-size: 18px;
+         line-height: 22px;
+      }
+
+      .wrapper {
+         width: 100%;
+         max-width: 1200px;
+         padding: 10px 15px;
+         margin: 0 auto;
+      }
+
+      .section__search {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         margin-bottom: 25px;
+
+      }
+
+      .input__name {
+         margin-right: 15px;
+         padding: 10px 15px;
+         border-radius: 8px;
+         border: 2px solid #565656;
+         text-align: center;
+      }
+
+      #submit {
+         padding: 10px 15px;
+         border-radius: 8px;
+         border: 2px solid #565656;
+         background-color: #22a166;
+         font-weight: 600;
+         text-align: center;
+
+      }
+
+      .info {
+         padding: 10px 15px;
+         border-radius: 8px;
+         border: 2px solid #565656;
+         text-align: center;
+         width: 100%;
+         max-width: 15%;
+         margin: 0 auto;
+      }
+   </style>
+</head>
+
+<body>
+   <div class="wrapper">
+      <div class="section__search">
+         <input type="text" required placeholder="Enter name" class="input__name">
+         <button id="submit">Find Out</button>
+      </div>
+      <div class="info"></div>
+   </div>
+   <script>
+      const inputName = document.querySelector(".input__name")
+      const btnSubmit = document.querySelector("#submit");
+      const infoArea = document.querySelector(".info");
+      const getInfo = (url, name) => {
+         const serverUrl = `${url}?name=${name}`;
+         return fetch(serverUrl)
+            .then(response => response.json())
+            .catch(err => err)
+      }
+      btnSubmit.addEventListener("click", async () => {
+
+         if (inputName.value.trim() !== "") {
+            const firstName = inputName.value;
+            const urlGender = 'https://api.genderize.io';
+            const urlCountry = 'https://api.nationalize.io';
+
+            let gender = "";
+            let country = "";
+            inputName.value = "";
+            try {
+               gender = await getInfo(urlGender, firstName).then(res => res.gender).catch(err => { throw err })
+               country = await getInfo(urlCountry, firstName).then(res => res.country[0].country_id).catch(err => { throw err })
+               infoArea.textContent = `${firstName} is ${gender} from ${country}`
+            } catch (error) {
+               alert(error.message)
+            }
+         } else alert("Empty input area! Please enter name.")
+
+
+      })
+   </script>
+
+</body>
+
+</html>

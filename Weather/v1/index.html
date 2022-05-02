@@ -1,18 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="./css/normalize.css">
-   <link rel="stylesheet" href="./css/style.css">
-   <title>Weather App</title>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="css/style.css">
+   <title>Weather</title>
 </head>
 
 <body>
-
-   <script src="./js/main.js"></script>
+	
+	
+	<div class="container page-wrapper">
+		<div class="page">
+			<div class="search">
+				<input type="text" class="search__input text-small" placeholder="Aktobe" />
+				<svg class="search__icon icon-search">
+					<use xlink:href="img/icons/icons.svg#search"></use>
+				</svg>
+			</div>
+			<div class="page__content border-not_top">
+				<div class="page__content_left">
+					<section class="info">
+						<div class="now">
+							<div class="temperature temperature_large now__temperature">
+								<span class="temperature__value">14</span>
+								<span class="temperature__symbol">&#176;</span>
+							</div>
+							<img class="now__img" src="img/cloud.png" alt="Weather image">
+							<div class="now__city">
+								<span class="text">Aktobe</span>
+								<svg class="now__icon icon-like">
+									<use xlink:href="img/icons/icons.svg#like"></use>
+								</svg>
+							</div>
+						</div>
+						<!-- <div class="details">
+							<div class="details__title text">Aktobe</div>
+							<ul class="weather-features">
+								<li class="weather-features__item text">
+									<span class="weather-features__key">Temperature:</span>
+									<div class="weather-features__value temperature"><span class="temperature__value">14</span>
+										<span class="temperature__symbol">&#176;</span>
+									</div>
+								</li>
+								<li class="weather-features__item text">
+									<span class="weather-features__key">Feels like:</span>
+									<div class="weather-features__value temperature"><span class="temperature__value">10</span>
+										<span class="temperature__symbol">&#176;</span>
+									</div>
+								</li>
+								<li class="weather-features__item text">
+									<span class="weather-features__key">Weather:</span>
+									<span class="weather-features__value">Clouds</span>
+								</li>
+								<li class="weather-features__item text">
+									<span class="weather-features__key">Sunrise:</span>
+									<span class="weather-features__value">03:21</span>
+								</li>
+								<li class="weather-features__item text">
+									<span class="weather-features__key">Sunset:</span>
+									<span class="weather-features__value">18:54</span>
+								</li>
+							</ul>
+						</div> -->
+						<!-- <div class="forecast">
+							<div class="forecast__title text">Aktobe</div>
+							<ul class="forecast-list">
+								<li class="forecast-list__item">
+									<div class="date text-small">
+										<span class="date__day">17 May</span>
+										<span class="date__time">12:00</span>
+									</div>
+									<div class="forecast-list__content">
+										<ul class="weather-features">
+											<li class="weather-features__item text-small">
+												<span class="weather-features__key">Temperature:</span>
+												<div class="weather-features__value temperature"><span
+														class="temperature__value">13</span>
+													<span class="temperature__symbol">&#176;</span>
+												</div>
+											</li>
+											<li class="weather-features__item text-small">
+												<span class="weather-features__key">Feels like:</span>
+												<div class="weather-features__value temperature"><span
+														class="temperature__value">10</span>
+													<span class="temperature__symbol">&#176;</span>
+												</div>
+											</li>
+										</ul>
+										<div class="forecast-features">
+											<div class="forecast-features__value">Rain</div>
+											<img src="img/cloud-rain.png" alt="Weather features" class="forecast-features__img">
+										</div>
+									</div>
+								</li>
+								<li class="forecast-list__item">
+									<div class="date text-small">
+										<span class="date__day">17 May</span>
+										<span class="date__time">15:00</span>
+									</div>
+									<div class="forecast-list__content">
+										<ul class="weather-features">
+											<li class="weather-features__item text-small">
+												<span class="weather-features__key">Temperature:</span>
+												<div class="weather-features__value temperature"><span
+														class="temperature__value">13</span>
+													<span class="temperature__symbol">&#176;</span>
+												</div>
+											</li>
+											<li class="weather-features__item text-small">
+												<span class="weather-features__key">Feels like:</span>
+												<div class="weather-features__value temperature"><span
+														class="temperature__value">10</span>
+													<span class="temperature__symbol">&#176;</span>
+												</div>
+											</li>
+										</ul>
+										<div class="forecast-features">
+											<div class="forecast-features__value">Rain</div>
+											<img src="img/cloud-rain.png" alt="Weather features" class="forecast-features__img">
+										</div>
+									</div>
+								</li>
+								<li class="forecast-list__item">
+									<div class="date text-small">
+										<span class="date__day">17 May</span>
+										<span class="date__time">18:00</span>
+									</div>
+									<div class="forecast-list__content">
+										<ul class="weather-features">
+											<li class="weather-features__item text-small">
+												<span class="weather-features__key">Temperature:</span>
+												<div class="weather-features__value temperature"><span
+														class="temperature__value">13</span>
+													<span class="temperature__symbol">&#176;</span>
+												</div>
+											</li>
+											<li class="weather-features__item text-small">
+												<span class="weather-features__key">Feels like:</span>
+												<div class="weather-features__value temperature"><span
+														class="temperature__value">10</span>
+													<span class="temperature__symbol">&#176;</span>
+												</div>
+											</li>
+										</ul>
+										<div class="forecast-features">
+											<div class="forecast-features__value">Rain</div>
+											<img src="img/cloud-rain.png" alt="Weather features" class="forecast-features__img">
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div> -->
+					</section>
+					<nav class="menu page__content-nav">
+						<ul class="menu-list">
+							<li class="menu-list__item menu-list__item_active">
+								<a href="" class="menu-list__link text-small">Now</a>
+							</li>
+							<li class="menu-list__item">
+								<a href="" class="menu-list__link text-small">Details</a>
+							</li>
+							<li class="menu-list__item">
+								<a href="" class="menu-list__link text-small">Forecast</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+				<div class="page__content_right">
+					<div class="location">
+						<div class="location__title text">Added Locations:</div>
+						<ul class="location-list">
+							<li class="location-list__item">
+								<a href="#" class="location-list__link text">Amur</a>
+							</li>
+							<li class="location-list__item">
+								<a href="#" class="location-list__link text">Samara</a>
+							</li>
+							<li class="location-list__item">
+								<a href="#" class="location-list__link text">Bali</a>
+							</li>
+							<li class="location-list__item">
+								<a href="#" class="location-list__link text">Dane</a>
+							</li>
+							<li class="location-list__item">
+								<a href="#" class="location-list__link text">Kilo</a>
+							</li>
+							<li class="location-list__item">
+								<a href="#" class="location-list__link text">Nur-Sultan</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /.container -->
+	<script src="js/app.min.js"></script>
 </body>
 
 </html>
